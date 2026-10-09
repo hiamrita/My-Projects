@@ -1,0 +1,443 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[left=0.75in,right=0.75in,top=0.34in,bottom=0.30in,includefoot,footskip=0.28in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[osf]{XCharter}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[expansion=alltext,protrusion=true,stretch=25,shrink=25]{microtype}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\definecolor{cvblue}{RGB}{18,84,178}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=cvblue,
+  urlcolor=cvblue,
+  citecolor=cvblue,
+  pdftitle={Amrita - Curriculum Vitae},
+  pdfauthor={Amrita},
+  pdfsubject={Prospective PhD Student, Human-Computer Interaction},
+  bookmarksopen=false,
+  breaklinks=true
+}
+
+\newcommand{\weblink}[2]{\href{#1}{\textbf{#2}}}
+\newcommand{\blacklink}[2]{\href{#1}{\textcolor{black}{#2}}}
+
+% ---- Section headings: small caps, letterspaced feel, thin rule beneath ----
+\titleformat{\section}{\large\centering}{}{0em}{}[\vspace{-6pt}]
+\titlespacing{\section}{0pt}{7pt}{1pt}
+\newcommand{\sectionrule}{\par\vspace{-2pt}\noindent\rule{\linewidth}{0.4pt}\par\vspace{2pt}}
+
+% ---- Tight lists ----
+\setlist[itemize]{leftmargin=1.1em, rightmargin=2.7em, itemsep=0.3pt, topsep=1.5pt, parsep=0pt, label=\textbullet}
+
+% ---- Body paragraphs: keep a right gutter so text never runs to the rule ----
+\newcommand{\body}[1]{{\setlength{\rightskip}{2.7em}#1\par}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{0.90}
+
+% ---- Locally adjustable vertical rhythm, used per page-chunk to make hard page breaks land full ----
+\newenvironment{spread}[2][\normalsize]{\par\begingroup\linespread{#2}#1\selectfont}{\par\endgroup}
+
+% ---- Entry header: Title (bold) flush left, Date/location flush right ----
+\newcommand{\entry}[2]{%
+  \par\noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \normalfont #2
+  \end{tabularx}\par
+}
+% ---- Same gap before every entry that follows another entry ----
+\newcommand{\entrygap}{\vspace{5pt}}
+% subtitle / institution line, italic
+\newcommand{\subline}[1]{{\setlength{\rightskip}{2.7em}\itshape\small #1\par}\vspace{1pt}}
+% small status/venue note line
+\newcommand{\noteline}[1]{{\setlength{\rightskip}{2.7em}\small #1\par}\vspace{1pt}}
+
+% ---- Page number only, bottom right; no header ----
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[R]{\small \thepage}
+
+% ---- PDF subject per version (no content differences beyond the two opening blocks) ----
+\ifdefined\ANTHRO \hypersetup{pdfsubject={Prospective PhD Student, Anthropology}}\fi
+\ifdefined\SOCSCI \hypersetup{pdfsubject={Prospective PhD Student, Sociology}}\fi
+\ifdefined\RELIG \hypersetup{pdfsubject={Prospective PhD Student, Religious Studies}}\fi
+\ifdefined\ARTHIST \hypersetup{pdfsubject={Prospective PhD Student, Art History and Visual Culture}}\fi
+\ifdefined\TEXTILE \hypersetup{pdfsubject={Prospective PhD Student, Materials Science (Clothing, Textiles and Design)}}\fi
+\ifdefined\EDRES \hypersetup{pdfsubject={Prospective PhD Student, Educational Research}}\fi
+
+\begin{document}
+
+% =========================== HEADER ===========================
+\begin{center}
+  {\LARGE\MakeUppercase{Amrita}}\\[9pt]
+  {\small \blacklink{mailto:hiamritaa@gmail.com}{hiamritaa@gmail.com} $\,\vert\,$ New~Delhi}\\[3pt]
+  {\small \textcolor{black}{ORCID:} \weblink{https://orcid.org/0009-0007-2573-7809}{0009-0007-2573-7809} $\,\vert\,$ \weblink{https://scholar.google.com/citations?user=fHuE-LEAAAAJ\&hl=en}{Google Scholar} $\,\vert\,$ \weblink{https://behance.net/hiamritaa}{Portfolio} $\,\vert\,$ \weblink{https://linkedin.com/in/hiamritaa}{LinkedIn}}
+\end{center}
+
+\vspace{2pt}
+
+\begin{spread}{1.07}
+% =========================== ACADEMIC PROFILE ===========================
+\needspace{5\baselineskip}
+\section{\MakeUppercase{Academic Profile}}
+\sectionrule
+% Five versions from this one file; only Academic Profile and Research Interests change.
+% HCI (default):          pdflatex AMRITA_CV_FINAL.tex
+% Anthropology:           pdflatex -jobname=AMRITA_CV_ANTH "\def\ANTHRO{}\input{AMRITA_CV_FINAL.tex}"
+% Sociology:              pdflatex -jobname=AMRITA_CV_SOC "\def\SOCSCI{}\input{AMRITA_CV_FINAL.tex}"
+% Religious Studies:      pdflatex -jobname=AMRITA_CV_REL "\def\RELIG{}\input{AMRITA_CV_FINAL.tex}"
+% Art History:            pdflatex -jobname=AMRITA_CV_ART "\def\ARTHIST{}\input{AMRITA_CV_FINAL.tex}"
+% Educational Research:   pdflatex -jobname=AMRITA_CV_EDRES '\def\EDRES{}\input{AMRITA_CV_FINAL.tex}'  (also puts Preprints on page 1, swaps NIFT coursework and the skills table, drops the Kali project, trims certificates)
+% Textiles/Materials Sci: pdflatex -jobname=AMRITA_CV_TEXT '\def\TEXTILE{}\input{AMRITA_CV_FINAL.tex}'  (also swaps NIFT coursework, paper order, one skills column)
+\ifdefined\EDRES
+\body{Qualitative and mixed-methods researcher trained in design, studying how people in India live with everyday machines and technological objects: the care they give them, how they explain it when machines fail, and how place, language and ability shape their accounts. Methods: in-depth interviews in Hindi and English, photo and scenario-based elicitation, thematic analysis, digital ethnography, field research with artisans, and surveys.}
+\else\ifdefined\TEXTILE
+\body{Fashion-trained designer and researcher studying how clothing and textile crafts are made, described and sold: craft and material claims on fashion websites, and greenwashing in fashion e-commerce. Methods: product-listing audits, craft documentation, surveys, interviews, 3D modeling, and design practice.}
+\else\ifdefined\ANTHRO
+\body{Researcher studying ritual, material culture and technology in India: the care people extend to their machines, how they explain machine failure, and how craft and festival traditions are presented and sold online. Methods: field research with artisans, interviews, surveys, digital ethnography (treating websites and social media as research sites), and design practice.}
+\else\ifdefined\SOCSCI
+\body{Researcher studying how people in India live with technology and markets: the rituals and care they extend to machines, how they explain machine failure, and how online platforms present craft and festival culture. Methods: surveys, interviews, field research with artisans, digital ethnography (treating websites and social media as research sites), and design practice.}
+\else\ifdefined\RELIG
+\body{Researcher studying religion and technology in everyday Indian life: the pujas and other care practices people extend to their machines, how they explain machine failure, and how festival and craft traditions are presented and sold online. Methods: surveys, interviews, field research with artisans, digital ethnography (treating websites and social media as research sites), and design practice.}
+\else\ifdefined\ARTHIST
+\body{Communication designer and researcher studying visual and material culture in India: how craft, textiles and festival imagery are presented and sold online, how craft knowledge is documented and credited, and how people relate to everyday objects and machines. Methods: field research with artisans, digital ethnography (treating websites and social media as research sites), surveys, interviews, and design practice.}
+\else
+\body{Design researcher studying how automated systems, AI tools, and online shopping platforms are designed, how people make sense of them, and who they serve well or leave out, mostly in India. Methods: surveys, interviews, field research, digital ethnography (treating websites and social media as research sites), and design practice.}
+\fi\fi\fi\fi\fi\fi
+
+% =========================== RESEARCH INTERESTS ===========================
+\needspace{5\baselineskip}
+\section{\MakeUppercase{Research Interests}}
+\sectionrule
+\ifdefined\EDRES
+\body{Qualitative research methodology, especially interviews that work with and through objects; how people come to understand, care for and live with everyday machines and technological objects; and mixed-methods designs that pair interviews with surveys across languages, places and abilities.}
+\else\ifdefined\TEXTILE
+\body{Functional properties of natural textile fibres, such as flame and antibacterial resistance, with a long-term interest in protective clothing for extreme environments (fire, underwater, space).}
+\else\ifdefined\ANTHRO
+\body{Anthropology of technology: ritual and care around everyday machines, material culture and craft, and how people in India make sense of automation and markets.}
+\else\ifdefined\SOCSCI
+\body{Sociology of technology: how place, income and culture shape what people believe machines can do and how much they trust them, ritual and care around everyday machines, and craft and commerce in India.}
+\else\ifdefined\RELIG
+\body{Religion and technology: ritual and care around everyday machines, how religious practice and place shape what people believe machines can do, and how festival and craft traditions are represented in commerce in India.}
+\else\ifdefined\ARTHIST
+\body{Visual and material culture: craft, textiles and fashion imagery in India, how festival and craft traditions are represented in digital commerce, and the ritual lives of everyday objects and machines.}
+\else
+\body{Human-computer interaction (HCI): how people come to trust automated and AI systems, how culture, income, and neurodiversity shape that trust, and how to design systems that work for more people.}
+\fi\fi\fi\fi\fi\fi
+
+% =========================== EDUCATION ===========================
+\needspace{5\baselineskip}
+\section{\MakeUppercase{Education}}
+\sectionrule
+
+\entry{\blacklink{https://drive.google.com/file/d/15ZjRr5q6_3QodrlmPGc5MxLBXLteZns3/view?usp=sharing}{Bachelor of Design (Fashion Communication)}}{2020 -- 2024~\textbar\ Patna, India}
+\subline{\weblink{https://nift.ac.in/}{National Institute of Fashion Technology (NIFT), India}}
+\begin{itemize}
+  \item Final CGPA: 8.3/10~\textbar\ \textbf{All-India Rank 878}, NIFT Entrance Exam
+  \item Final-year industry project: \textit{Festive Playbook}, with Myntra.
+\ifdefined\EDRES
+  \item Select coursework: Design Research (crafts-based case studies); Design Methodology for Fashion; Introduction to AI; Interface Design (UI); Semiotics and Letter~Forms. \weblink{https://drive.google.com/file/d/1mAdvgwz9V8V-WBmV5T0NfUh7NFnwv4RZ/view?usp=sharing}{Transcripts}
+\else\ifdefined\TEXTILE
+  \item Select coursework: Material Studies; Space and Materiality; Fashion Culture and Costume; Design Research (crafts-based case studies); AR/VR Design; Interdisciplinary Minor (Fashion Technology). \weblink{https://drive.google.com/file/d/1mAdvgwz9V8V-WBmV5T0NfUh7NFnwv4RZ/view?usp=sharing}{Transcripts}
+\else
+  \item Select coursework: Interface Design (UI); AR/VR Design; Introduction to AI; Principles of Web Design; Design~Research; Semiotics and Letter~Forms. \weblink{https://drive.google.com/file/d/1mAdvgwz9V8V-WBmV5T0NfUh7NFnwv4RZ/view?usp=sharing}{Transcripts}
+\fi\fi
+\end{itemize}
+
+\entrygap
+\needspace{4\baselineskip}
+\entry{\blacklink{https://drive.google.com/file/d/17dy8an7OjKxL5iDDffVQ3rNIcmwwwc8o/view?usp=sharing}{Associate in Applied Science (AAS), Advertising and Marketing Communications}}{2022 -- 2023~\textbar\ New York, USA}
+\subline{\weblink{https://www.fitnyc.edu/}{Fashion Institute of Technology (FIT), New York USA}}
+\begin{itemize}
+  \item Final GPA: 3.09/4.0~\textbar\ \textbf{All-India Rank 1} in NIFT's selection for this dual-degree exchange
+  \item Internship (CPT) at M\&S Schmalberg, New York.
+  \item Select coursework: Research Methods in Integrated Marketing Communications; Multimedia Computing; Mass Communications. \weblink{https://drive.google.com/file/d/1Jwpo17iYTP66lsSBYnFyPfe6mJzgGSVW/view?usp=sharing}{Transcripts}
+\end{itemize}
+
+% =========================== PAPERS (defined here, placed below) ===========================
+% Paper entries as global macros (\gdef, so they survive the spread groups) so each version can order papers and sections differently.
+% Educational Research puts Preprints (the interview study) on page 1 and Accepted Papers on page 2.
+\long\gdef\paperDash{%
+\entry{\weblink{https://drive.google.com/file/d/1tCZQU7DYDO6tcqWwCyu1k6Ppgjlt-caI/view?usp=sharing}{Beyond the Dashboard}}{2026}
+\subline{Ambient Intent Cues for Human-Automation Interaction}
+\noteline{\weblink{https://www.2026.indiahci.org/}{Accepted} ($\sim$17\% acceptance rate) for publication in \textit{Proceedings of India HCI 2026}, ACM Digital Library.}
+
+\begin{itemize}
+  \item Proposes a framework for how machines that work around people without a screen, such as delivery robots, self-driving vehicles, and smart homes, can show what they are doing or about to do through light, sound, movement, vibration, and timing, with a four-stage model that traces each cue from the machine's state to how a person reads it and responds.
+\end{itemize}
+}
+\long\gdef\paperDressed{%
+\entry{\weblink{https://osf.io/preprints/socarxiv/5kngy_v3}{Dressed for the Festival, Made for the Landfill}}{2026}
+\subline{Dark Patterns, Cultural Appropriation, and Greenwashing in Indian Fashion E-Commerce}
+\noteline{\weblink{https://drive.google.com/file/d/1twLPO_7BphApJdp-cwWEhQkgyqautiCv/view?usp=sharing}{Accepted} for presentation at Humanizing Work and Work Environment 2026 (HWWE 2026), UPES School of Design, Dehradun (\textbf{Springer proceedings}, camera-ready submitted).}
+
+\begin{itemize}
+  \item A conceptual paper, informed by fieldwork with Sikki grass weavers in Bihar, arguing that Indian fashion sites use festival and craft imagery to rush people into buying cheap, mass-produced clothing that looks eco-friendly. Proposes three new concepts linking dark patterns (design tricks that pressure buyers, like countdown timers), cultural appropriation, and greenwashing.
+\end{itemize}
+}
+\long\gdef\paperFest{%
+\entry{\weblink{https://drive.google.com/file/d/1bdXGlDM-xzXLrAcwGvLgGWjYeE5yVJok/view?usp=sharing}{Festivity, E-Commerce, and Cultural Appropriateness}}{2027}
+\noteline{\weblink{https://drive.google.com/file/d/1_61nEXlh5PEcTyDemv14-_uX9sQAaTKM/view?usp=sharing}{Full paper accepted} for presentation at Fashion as a Tool for Social Change (FTSC 2027), Woxsen University, as first author with \textbf{Prof.\ Ragini Ranjana}, NIFT Patna; under review for \textit{Textile: Cloth and Culture} or a Scopus-indexed \textbf{Springer} volume.}
+
+\begin{itemize}
+  \item Used digital ethnography to study how three Indian fashion platforms show five traditional crafts at festival time: \textbf{75 product-page screenshots} from their websites and \textbf{81} from nine festive Instagram campaigns.
+  \item No product page named the artisan or showed an official craft mark, though all five crafts are legally registered, and printed fabric was often sold under craft names such as Bandhani (a hand tie-dye craft).
+\end{itemize}
+}
+\long\gdef\paperMachines{%
+\entry{\weblink{https://doi.org/10.31235/osf.io/p7gxd_v1}{Making Sense of Machines}}{08/2026}
+\subline{Ritualized Care, Agency Attribution, and Failure Interpretation in Human-Automation Encounters in India}
+\noteline{Full manuscript submitted to \textit{Technology in Society}. \weblink{https://drive.google.com/file/d/12JfvEnMd9PZ8FZzHZp37U9xdLUJKVhBa/view?usp=sharing}{Poster} submitted to India HCI 2026.}
+
+\begin{itemize}
+\ifdefined\EDRES
+  \item Designed and ran a mixed-methods study: a survey of 156 adults and in-depth interviews with 21 people across urban and rural India, in Hindi and English, using photos and short scenarios as prompts, about how they care for their machines and how they explain it when machines fail.
+  \item 96\% reported some form of machine care, such as blessing a new vehicle or honoring tools during Vishwakarma Puja (an annual festival for tools and machines). When a vehicle failed and then restarted on its own, 62\% also chose a reason about care or meaning, such as having neglected it or the failure being a warning sign.
+  \item Against the study's starting assumption that people would describe machines as living things, interviewees described their care as practical upkeep, not a belief that machines are conscious. Proposes an early framework for how such care shapes trust in machines and how people explain failures.
+\else
+  \item Surveyed 156 adults and interviewed 21 people across urban and rural India, in Hindi and English, using photos and short scenarios, about how they care for machines and how they explain it when machines fail.
+  \item 96\% reported some form of machine care, such as blessing a new vehicle or honoring tools during Vishwakarma Puja (an annual festival for tools and machines). When a vehicle failed and then restarted on its own, 62\% also chose a reason about care or meaning, such as having neglected it or the failure being a warning sign.
+  \item Interviews showed that most people saw this care as upkeep, not a belief that machines are conscious. Proposes an early framework for how such care shapes trust in machines and how people explain failures.
+\fi
+\end{itemize}
+}
+\long\gdef\paperNeuro{%
+\entry{\weblink{https://dx.doi.org/10.2139/ssrn.6959200}{Neuro-Inclusive Generative AI}}{06/2026}
+\subline{Cognitive Barriers, Coping Strategies, and Design Patterns in Prompt-Based Creative Tools}
+\noteline{Submitted to Annual Conference of Cognitive Science (ACCS 2026), University of Hyderabad}
+
+\begin{itemize}
+  \item A structured review of research from 2020 to 2026 on why prompt-based AI image tools can be hard to use for people with ADHD, autism, dyslexia, and related cognitive differences.
+  \item Identified four barriers: keeping track of long prompts and settings, planning repeated rounds of revision, dense text-heavy screens, and hidden prompting rules that make it hard to tell why an image came out wrong.
+  \item Sorted every design recommendation by strength of evidence; most rest on related studies or inference, and no reviewed study tested an AI image tool with neurodivergent users.
+\end{itemize}
+}
+
+% ---- Accepted Papers section ----
+\long\gdef\acceptedSection{%
+\needspace{5\baselineskip}
+\section{\MakeUppercase{Accepted Papers}}
+\sectionrule
+
+\ifdefined\TEXTILE
+\paperDressed
+\entrygap
+\needspace{4\baselineskip}
+\paperFest
+\entrygap
+\needspace{4\baselineskip}
+\paperDash
+\else
+\paperDash
+\entrygap
+\needspace{4\baselineskip}
+\paperDressed
+\entrygap
+\needspace{4\baselineskip}
+\paperFest
+\fi
+}
+
+% ---- Preprints section ----
+\long\gdef\preprintsSection{%
+\needspace{5\baselineskip}
+\section{\MakeUppercase{Preprints / Manuscripts Under Review}}
+\sectionrule
+
+\paperMachines
+\entrygap
+\needspace{9\baselineskip}
+\paperNeuro
+}
+
+% =========================== WORKING PAPERS ===========================
+\ifdefined\EDRES \preprintsSection \else \acceptedSection \fi
+
+\end{spread}
+\clearpage
+\begin{spread}{1.07}
+% =========================== PREPRINTS ===========================
+\ifdefined\EDRES \acceptedSection \else \preprintsSection \fi
+
+% =========================== SELECTED PROJECTS ===========================
+\needspace{5\baselineskip}
+\section{\MakeUppercase{Selected Academic Design Research Projects (2022--2024)}}
+\sectionrule
+
+\entry{\weblink{https://www.behance.net/gallery/248551173/Craft-Research-Documentation-on-Sikki-Grass}{Craft Research Documentation on Sikki Grass}}{2022}
+\subline{Field Documentation / Cultural Research~\textbar\ Faculty mentor: Mr.\ Mohammad Shadab Sami, NIFT Patna}
+\begin{itemize}
+  \item Spent several days in Raiyam West village, Bihar, interviewing three generations of one artisan family and five more women artisans; recorded each artisan's household role, craft, and registration date.
+  \item Documented 10 named techniques of Sikki (a grass-weaving craft) stitch by stitch; compared the community's oral history with the craft's Geographical Indication (GI) registration.
+  \item Set the fieldwork against national export data (India's handmade exports grew from \$3.5B to \$4.3B in one year); designed a small product brand with logo and packaging.
+\end{itemize}
+
+\entrygap
+\needspace{4\baselineskip}
+\entry{\weblink{https://www.behance.net/gallery/230430135/Festive-Playbook-Myntra}{Festive Playbook --- Myntra}}{2024}
+\subline{UI-UX, E-commerce, Cultural Design Strategy~\textbar\ Academic mentor: Mr.\ Kumar Vikas, NIFT Patna}
+\begin{itemize}
+  \item Researched 30 Indian festivals and compared how people celebrate them today with how earlier generations did, including the role of shopping and social media.
+  \item Informed Myntra's live 2024 festive campaigns (storefront, imagery, and copy); adopted by five teams, including Category, Curation, and Copy.
+  \item Directed a festival photoshoot used across the live campaigns.
+\end{itemize}
+
+% Kali (luxury handbag design) is left out of the Educational Research version to keep its research pages to two.
+\ifdefined\EDRES\else
+\entrygap
+\needspace{4\baselineskip}
+\entry{\weblink{https://drive.google.com/file/d/1EOxRlg-zcMgTY221rpN7HIs18QQ0vArc/view?usp=sharing}{Understanding Kali: Luxury Handbag Design Research}}{2023}
+\subline{Design Research Live Industry Project}
+\begin{itemize}
+  \item Set bag proportions by overlaying geometric diagrams on Indian temple sculpture from the Gupta to Mughal periods; turned motifs such as the trishul (trident), lotus, and crescent moon into the bag's shape.
+  \item Compared 32 bags from about 20 luxury brands and reviewed 27 sources on craft history and the market; rendered the final line in two traditional Indian finishes, Nakashi and filigree.
+  \item Studied temple imagery for recurring motifs to use in hardware and surface details, and looked at how brands adapt similar motifs today.
+\end{itemize}
+\fi
+
+\entrygap
+\needspace{4\baselineskip}
+\entry{\weblink{https://www.behance.net/gallery/248581343/Immersive-Retail-Experience-Design}{Immersive Retail Experience Design}}{2023}
+\subline{Academic AR/VR Experience Design~\textbar\ Faculty mentor: Ms.\ Monika, NIFT Patna}
+\begin{itemize}
+  \item Followed a four-step process (research, trend synthesis, 3D modeling, prototyping) for three concepts based on crafts from Bihar: Sujani embroidery, Madhubani art, and Bhagalpuri silk.
+  \item Modeled four AR/VR shopping concepts in Blender, based on real retail tech such as FX Mirror and GU's Style Creator Stand, including an AR map that pins Sujani embroidery to its village of origin.
+\end{itemize}
+
+\end{spread}
+\clearpage
+% Educational Research swaps in denser skills text, so its last page runs slightly tighter to stay on 3 pages
+\ifdefined\EDRES\begin{spread}{1.03}\else\begin{spread}{1.07}\fi
+% =========================== VOLUNTEER ===========================
+\needspace{5\baselineskip}
+\section{\MakeUppercase{Teaching Experience}}
+\sectionrule
+
+\entry{\weblink{https://linkedin.com/in/hiamritaa}{Teach For India}}{10/2024 -- 01/2025}
+\subline{School Design Cohort Member}
+\body{Took part in an intensive school-design program on how ordinary classrooms could give students more control over their learning, with coursework in alternative schooling models and curriculum prototyping.}
+
+\entrygap
+\needspace{4\baselineskip}
+\entry{\weblink{https://robinhoodarmy.com/}{Robin Hood Army}}{2021 -- 2022~\textbar\ Delhi, India}
+\subline{Volunteer Educator}
+\body{Taught children with limited access to formal schooling; led 100+ community food distribution drives.}
+
+% =========================== PROFESSIONAL EXPERIENCE ===========================
+\needspace{5\baselineskip}
+\section{\MakeUppercase{Professional Experience}}
+\sectionrule
+
+\entry{Associate Brand Designer}{09/2025 -- Present~\textbar\ Noida, India}
+\subline{\weblink{https://zinnia.com/en}{Zinnia}}
+\begin{itemize}
+  \item Design brand and marketing materials for an insurance software company that sells to businesses (B2B SaaS), working with U.S.-based teams on global brand projects.
+  \item Turn complex enterprise technology into clear visuals for product, marketing, and content teams.
+\end{itemize}
+
+\entrygap
+\needspace{4\baselineskip}
+\entry{Graphic Designer}{09/2024 -- 08/2025~\textbar\ Kolkata, India}
+\subline{\weblink{https://bombaim.in/}{Bombaim}}
+\begin{itemize}
+  \item Designed digital and print ads, campaigns, and brand stories for a luxury multi-brand retailer.
+\end{itemize}
+
+\entrygap
+\needspace{4\baselineskip}
+\entry{Creative Design Intern}{01/2024 -- 04/2024~\textbar\ Bangalore, India}
+\subline{\weblink{https://www.myntra.com/}{Myntra}}
+\begin{itemize}
+  \item Worked with the Store, Category, Brands, UX, Curation, and Copy teams on research and UI design.
+  \item Helped shape culturally grounded festive shopping experiences, which fed into the Festive Playbook.
+\end{itemize}
+
+\entrygap
+\needspace{4\baselineskip}
+\entry{Marketing Strategist Intern}{06/2023 -- 09/2023~\textbar\ New York, USA}
+\subline{\weblink{https://customfabricflowers.com/}{M\&S Schmalberg}}
+\begin{itemize}
+  \item Researched market trends and competitors for a heritage fabric-flower maker to support product presentation, packaging, and brand communication.
+\end{itemize}
+
+% =========================== AWARDS ===========================
+\needspace{5\baselineskip}
+\section{\MakeUppercase{Awards, Leadership, and Professional Development}}
+\sectionrule
+
+\entry{\weblink{https://linkedin.com/in/hiamritaa}{Aspire Leaders Program}}{2025}
+\subline{Aspire Institute}
+\body{Completed all stages of the 2025 program, with coursework in leadership, critical thinking, communication, and social impact. Received the Academic Advancement Grant.}
+
+\entrygap
+\needspace{4\baselineskip}
+\entry{\weblink{https://worldskills.org/skills/id/336/}{Winner, Visual Merchandising}}{2021}
+\subline{WorldSkills India}
+\body{Represented Delhi at the WorldSkills India national competition; honored by the Chief Minister and Deputy Chief Minister of Delhi and officials of the National Skill Development Corporation (NSDC).}
+
+% =========================== RESEARCH METHODS ===========================
+\needspace{5\baselineskip}
+\section{\MakeUppercase{Research Methods, Tools, and Technical Skills}}
+\sectionrule
+
+\ifdefined\EDRES
+\newcommand{\skillsThreeHead}{\textbf{Survey \& Mixed-Methods Research}}
+\newcommand{\skillsThreeBody}{Survey design; scenario and photo-based questions; sampling across metro, smaller-town and semi-rural sites; descriptive analysis in Excel; combining survey and interview findings; user research; accessibility analysis.}
+\else\ifdefined\TEXTILE
+\newcommand{\skillsThreeHead}{\textbf{Textile, Craft \& Material Research}}
+\newcommand{\skillsThreeBody}{Material studies; field documentation of craft techniques; audits of craft and sustainability claims in fashion product listings; cultural mapping; trend research; competitor analysis; 3D modeling (Blender).}
+\else
+\newcommand{\skillsThreeHead}{\textbf{Consumer, Cultural \& Market Research}}
+\newcommand{\skillsThreeBody}{Cultural mapping; consumer profiling; SWOT; competitor analysis; focus-group design; trend research; e-commerce analysis; integrated marketing (IMC) analysis.}
+\fi\fi
+\ifdefined\EDRES
+\newcommand{\skillsOneHead}{\textbf{Qualitative Research}}
+\newcommand{\skillsOneBody}{In-depth interviews in Hindi and English; thematic analysis; vignette and photo elicitation; digital ethnography; visual and semiotic analysis; narrative review; literature synthesis.}
+\newcommand{\skillsTwoHead}{\textbf{Fieldwork \& Elicitation}}
+\newcommand{\skillsTwoBody}{Field research with artisan communities; interviews across three generations of one artisan family; comparing oral history with official craft records; craft documentation; focus-group design.}
+\newcommand{\skillsFourHead}{\textbf{Research and Design Tools}}
+\newcommand{\skillsFourBody}{Google Forms and Excel (survey design and analysis); interview transcription tools; Figma; Adobe Creative Cloud; generative AI tools (Midjourney, Runway ML, Claude, OpenAI API).}
+\else
+\newcommand{\skillsOneHead}{\textbf{HCI, UX, and Accessibility Research}}
+\newcommand{\skillsOneBody}{User research; interface analysis \& audits; heuristic evaluation; journey mapping; accessibility analysis; cognitive-load framing; culturally situated UX; e-commerce UX; concept prototyping.}
+\newcommand{\skillsTwoHead}{\textbf{Qualitative \& Mixed-Methods Research}}
+\newcommand{\skillsTwoBody}{Interviews; thematic analysis; survey design; vignette and photo elicitation; digital ethnography; field research; narrative review; literature synthesis; visual and semiotic analysis.}
+\newcommand{\skillsFourHead}{\textbf{Research, Design, and AI Tools}}
+\newcommand{\skillsFourBody}{Google Forms and Excel (survey design and analysis); interview transcription tools; Figma; Adobe Creative Cloud; Character Animator; Canva; Midjourney; Runway ML; Leonardo AI; Adobe Sensei; Claude; OpenAI API.}
+\fi
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X@{}}
+\skillsOneHead & \skillsTwoHead \\
+\small \skillsOneBody
+&
+\small \skillsTwoBody \\ \noalign{\vspace{4pt}}
+\skillsThreeHead & \skillsFourHead \\
+\small \skillsThreeBody
+&
+\small \skillsFourBody
+\end{tabularx}
+
+% =========================== CERTIFICATES ===========================
+\needspace{5\baselineskip}
+\section{\MakeUppercase{Certificates and Additional Training}}
+\sectionrule
+
+\ifdefined\EDRES
+\body{\small\weblink{https://linkedin.com/in/hiamritaa}{Selected Professional Training}: Research Writing with AI Tools \& Presentation Design; UX Research; Generative AI Essentials; AR/VR Fundamentals; Oxford Climate Change Course; Figma; Adobe Creative Cloud; Leadership; Communication.}
+\else
+\body{\small\weblink{https://linkedin.com/in/hiamritaa}{Selected Professional Training}: Research Writing with AI Tools \& Presentation Design; Figma; UX Research; Adobe Creative Cloud; Color for Design and Art; Design Foundations; Premiere Pro Editing; Oxford Climate Change Course; AR/VR Fundamentals; Generative AI Essentials; Leadership; Communication.}
+\fi
+
+\end{spread}
+
+\end{document}
