@@ -101,7 +101,7 @@
 % Educational Research:   pdflatex -jobname=AMRITA_CV_EDRES '\def\EDRES{}\input{AMRITA_CV_FINAL.tex}'  (also puts Preprints on page 1, swaps NIFT coursework and the skills table, drops the Kali project, trims certificates)
 % Textiles/Materials Sci: pdflatex -jobname=AMRITA_CV_TEXT '\def\TEXTILE{}\input{AMRITA_CV_FINAL.tex}'  (also swaps NIFT coursework, paper order, one skills column)
 \ifdefined\EDRES
-\body{Qualitative and mixed-methods researcher trained in design, studying how people in India live with everyday machines and technological objects: the care they give them, how they explain it when machines fail, and how place, language and ability shape their accounts. Methods: in-depth interviews in Hindi and English, photo and scenario-based elicitation, thematic analysis, digital ethnography, field research with artisans, and surveys.}
+\body{Qualitative and mixed-methods researcher trained in design, studying how people in India live with, look after and make sense of everyday machines and emerging technologies such as AI tools, and how income, place, language and ability shape those experiences. Methods: in-depth interviews in Hindi and English, photo and scenario-based elicitation, thematic analysis, digital ethnography, field research with artisans, and surveys.}
 \else\ifdefined\TEXTILE
 \body{Fashion-trained designer and researcher studying how clothing and textile crafts are made, described and sold: craft and material claims on fashion websites, and greenwashing in fashion e-commerce. Methods: product-listing audits, craft documentation, surveys, interviews, 3D modeling, and design practice.}
 \else\ifdefined\ANTHRO
@@ -121,7 +121,7 @@
 \section{\MakeUppercase{Research Interests}}
 \sectionrule
 \ifdefined\EDRES
-\body{Qualitative research methodology, especially interviews that work with and through objects; how people come to understand, care for and live with everyday machines and technological objects; and mixed-methods designs that pair interviews with surveys across languages, places and abilities.}
+\body{Qualitative research methodology: how people across different socioeconomic contexts live with, care for and make sense of everyday machines and emerging technologies; interviewing methods that use objects, photos and scenarios as prompts; and mixed-methods designs that pair interviews with surveys across languages and places.}
 \else\ifdefined\TEXTILE
 \body{Functional properties of natural textile fibres, such as flame and antibacterial resistance, with a long-term interest in protective clothing for extreme environments (fire, underwater, space).}
 \else\ifdefined\ANTHRO
@@ -202,9 +202,9 @@
 
 \begin{itemize}
 \ifdefined\EDRES
-  \item Designed and ran a mixed-methods study: a survey of 156 adults and in-depth interviews with 21 people across urban and rural India, in Hindi and English, using photos and short scenarios as prompts, about how they care for their machines and how they explain it when machines fail.
+  \item Designed and ran a mixed-methods study with adults in metro, smaller-town and semi-rural India: a survey (n\,=\,156) and in-depth interviews (n\,=\,21) in Hindi and English, using photos and brief scenarios as prompts, on how people look after their machines and explain machine failures.
   \item 96\% reported some form of machine care, such as blessing a new vehicle or honoring tools during Vishwakarma Puja (an annual festival for tools and machines). When a vehicle failed and then restarted on its own, 62\% also chose a reason about care or meaning, such as having neglected it or the failure being a warning sign.
-  \item Against the study's starting assumption that people would describe machines as living things, interviewees described their care as practical upkeep, not a belief that machines are conscious. Proposes an early framework for how such care shapes trust in machines and how people explain failures.
+  \item In interviews, most people framed this care as routine maintenance, not a belief that machines are conscious. Proposes an early framework for how such care shapes trust in machines and how people explain failures.
 \else
   \item Surveyed 156 adults and interviewed 21 people across urban and rural India, in Hindi and English, using photos and short scenarios, about how they care for machines and how they explain it when machines fail.
   \item 96\% reported some form of machine care, such as blessing a new vehicle or honoring tools during Vishwakarma Puja (an annual festival for tools and machines). When a vehicle failed and then restarted on its own, 62\% also chose a reason about care or meaning, such as having neglected it or the failure being a warning sign.
@@ -220,7 +220,11 @@
 \begin{itemize}
   \item A structured review of research from 2020 to 2026 on why prompt-based AI image tools can be hard to use for people with ADHD, autism, dyslexia, and related cognitive differences.
   \item Identified four barriers: keeping track of long prompts and settings, planning repeated rounds of revision, dense text-heavy screens, and hidden prompting rules that make it hard to tell why an image came out wrong.
+\ifdefined\EDRES
+  \item Graded each design recommendation by its strength of evidence; most rest on adjacent studies or inference, and the review found no direct user testing of AI image tools with neurodivergent people.
+\else
   \item Sorted every design recommendation by strength of evidence; most rest on related studies or inference, and no reviewed study tested an AI image tool with neurodivergent users.
+\fi
 \end{itemize}
 }
 
@@ -272,7 +276,11 @@
 
 % =========================== SELECTED PROJECTS ===========================
 \needspace{5\baselineskip}
+\ifdefined\EDRES
+\section{\MakeUppercase{Selected Field and Design Research Projects (2022--2024)}}
+\else
 \section{\MakeUppercase{Selected Academic Design Research Projects (2022--2024)}}
+\fi
 \sectionrule
 
 \entry{\weblink{https://www.behance.net/gallery/248551173/Craft-Research-Documentation-on-Sikki-Grass}{Craft Research Documentation on Sikki Grass}}{2022}
